@@ -1,0 +1,29 @@
+server:
+  port: 8018
+  tomcat:
+    uri-encoding: utf-8
+  contextPath: /abh
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles: 
+    active: dev
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+mvc:
+    static-path-pattern: /abh/**
+
+
+
+
+#关于contextPath以下几处需要修改:
+#本文件的 contextPath: /abh
+#    static-path-pattern: /abh/**
+#
+#static/js下的const.js
