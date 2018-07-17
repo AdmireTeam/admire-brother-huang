@@ -4,6 +4,7 @@ import com.abh.constants.RequestConst;
 import com.abh.model.HedaRequestDTO;
 import com.abh.model.SubmitDO;
 import com.abh.model.TestDTO;
+import com.abh.provider.client.HdClient;
 import com.abh.utils.R;
 import com.abh.utils.ThymeleafUtils;
 import org.apache.log4j.LogManager;
@@ -47,6 +48,7 @@ public class HedaController {
     @RequestMapping("/send")
     public R update(HedaRequestDTO hedaRequestDTO){
         logger.debug("send request:" + ThymeleafUtils.modelDumps(hedaRequestDTO, HedaRequestDTO.class));
+        HdClient.send(hedaRequestDTO);
         return R.ok();
     }
 
