@@ -34,6 +34,14 @@ public class RequestConst {
             HedaP14 = resourceBundle.getString("HedaP14");
 
 
+            MtConAddress=resourceBundle.getString("MtConAddress");
+            MtWaterNum=resourceBundle.getString("MtWaterNum");
+            MtAccumulate1=resourceBundle.getString("MtAccumulate1");
+            MtAccumulate2=resourceBundle.getString("MtAccumulate2");
+            MtInstantFlow=resourceBundle.getString("MtInstantFlow");
+            MtTime=resourceBundle.getString("MtTime");
+
+
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }
@@ -54,6 +62,12 @@ public class RequestConst {
     public static String HedaP2;
     public static String HedaP13;
     public static String HedaP14;
+    public static String MtConAddress;
+    public static String MtWaterNum;
+    public static String MtAccumulate1;
+    public static String MtAccumulate2;
+    public static String MtInstantFlow;
+    public static String MtTime;
 
 
 }
