@@ -36,7 +36,7 @@ public class MaituoMessage {
     }
 
 
-    public static byte[] generateUpStreamMessage(String conStartAddr,String waterNumber,String accumulate1,String accumulate2,String instant,String time) throws IOException {
+    public static byte[] generateUpStreamMessage(MaituoRequestDTO maituoRequestDTO) throws IOException {
         /* 迈拓主动上报水表数据报文
 
         参数：
@@ -49,7 +49,7 @@ public class MaituoMessage {
          */
 
 
-        byte[] waterNumber1 = str2Bcd(String.valueOf(waterNumber));
+        byte[] waterNumber1 = str2Bcd(String.valueOf(maituoRequestDTO.getWaterNum()));
         byte[] factory_code = new byte[]{(byte)0,(byte)17,(byte)17};
 
 
@@ -67,12 +67,12 @@ public class MaituoMessage {
         byte[] controlBytes_new = new byte[]{(byte)129,(byte)27,(byte)137,(byte)26,(byte)179 };
         byte[] waterState = new byte[]{(byte)0};
         byte[] valveState = new byte[]{(byte)85};
-        byte[] accumulate_1 = reverseArray(str2Bcd(accumulate1));
-        byte[] accumulate_2 = reverseArray(str2Bcd(accumulate2));
-        byte[] instantFlow = reverseArray(str2Bcd(instant));
-        byte[] timeBCD = reverseArray(str2Bcd(time));
+        byte[] accumulate_1 = reverseArray(str2Bcd(maituoRequestDTO.getAccumulate1()));
+        byte[] accumulate_2 = reverseArray(str2Bcd(maituoRequestDTO.getAccumulate2()));
+        byte[] instantFlow = reverseArray(str2Bcd(maituoRequestDTO.getInstantFlow()));
+        byte[] timeBCD = reverseArray(str2Bcd(maituoRequestDTO.getTime()));
 
-        String conAddr = stringToHexAscii(conStartAddr);
+        String conAddr = stringToHexAscii(maituoRequestDTO.getConAddress());
         //System.out.println("conAddr:" + conAddr);
 
 
@@ -87,7 +87,7 @@ public class MaituoMessage {
         return res;
     }
 
-    public static byte[] generateResonseMessage(String conStartAddr,String waterNumber,String accumulate1,String accumulate2,String instant,String time) throws IOException {
+    public static byte[] generateResponseMessage(MaituoRequestDTO maituoRequestDTO) throws IOException {
         /* 迈拓回复服务端上行报文
 
         参数：
@@ -100,7 +100,7 @@ public class MaituoMessage {
          */
 
 
-        byte[] waterNumber1 = str2Bcd(String.valueOf(waterNumber));
+        byte[] waterNumber1 = str2Bcd(String.valueOf(maituoRequestDTO.getWaterNum()));
         byte[] factory_code = new byte[]{(byte)0,(byte)17,(byte)17};
 
 
@@ -118,12 +118,12 @@ public class MaituoMessage {
         byte[] controlBytes_new = new byte[]{(byte)129,(byte)27,(byte)137,(byte)26,(byte)179 };
         byte[] waterState = new byte[]{(byte)0};
         byte[] valveState = new byte[]{(byte)85};
-        byte[] accumulate_1 = reverseArray(str2Bcd(accumulate1));
-        byte[] accumulate_2 = reverseArray(str2Bcd(accumulate2));
-        byte[] instantFlow = reverseArray(str2Bcd(instant));
-        byte[] timeBCD = reverseArray(str2Bcd(time));
+        byte[] accumulate_1 = reverseArray(str2Bcd(maituoRequestDTO.getAccumulate1()));
+        byte[] accumulate_2 = reverseArray(str2Bcd(maituoRequestDTO.getAccumulate2()));
+        byte[] instantFlow = reverseArray(str2Bcd(maituoRequestDTO.getInstantFlow()));
+        byte[] timeBCD = reverseArray(str2Bcd(maituoRequestDTO.getTime()));
 
-        String conAddr = stringToHexAscii(conStartAddr);
+        String conAddr = stringToHexAscii(maituoRequestDTO.getConAddress());
         //System.out.println("conAddr:" + conAddr);
 
 
