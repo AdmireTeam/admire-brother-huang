@@ -30,11 +30,11 @@ public class MaituoController {
     @GetMapping()
     public String homePage(Model model){
         MaituoRequestDTO maituoRequestDTO = new MaituoRequestDTO();
-        maituoRequestDTO.setNumber(RequestConst.MtConAddress);
+        maituoRequestDTO.setConAddress(RequestConst.MtConAddress);
         maituoRequestDTO.setWaterNum(RequestConst.MtWaterNum);
-        maituoRequestDTO.setAccu1(RequestConst.MtAccumulate1);
-        maituoRequestDTO.setAccu2(RequestConst.MtAccumulate2);
-        maituoRequestDTO.setInstant(RequestConst.MtInstantFlow);
+        maituoRequestDTO.setAccumulate1(RequestConst.MtAccumulate1);
+        maituoRequestDTO.setAccumulate2(RequestConst.MtAccumulate2);
+        maituoRequestDTO.setInstantFlow(RequestConst.MtInstantFlow);
         maituoRequestDTO.setTime(RequestConst.MtTime);
 
 
