@@ -18,8 +18,10 @@ public class MtClient extends BaseClient{
     public static void send(MaituoRequestDTO maituoRequestDTO) throws IOException {
         String requestMessage = MaituoMessage.generateHeartBytes(maituoRequestDTO);
         logger.debug("maituo request:" + requestMessage);
+        String[] requestMessages = new String[1];
+        requestMessages[0] = requestMessage;
         try {
-            sendMessage(RequestConst.HedaHost, RequestConst.HedaPort, requestMessage);
+            sendMessage(RequestConst.HedaHost, RequestConst.HedaPort, requestMessages);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {

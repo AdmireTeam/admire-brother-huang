@@ -22,6 +22,7 @@ public class HdClient extends BaseClient{
         String requestMessage = HedaMessage.generateMessage(hedaRequestDTO);
         logger.debug("heda request:" + requestMessage);
         String[] requestMessages = new String[1];
+        requestMessages[0] = requestMessage;
         try {
             sendMessage(RequestConst.HedaHost, RequestConst.HedaPort, requestMessages);
         } catch (InterruptedException e) {
