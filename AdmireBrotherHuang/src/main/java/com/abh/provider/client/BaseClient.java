@@ -20,7 +20,7 @@ public class BaseClient {
      * Netty创建全部都是实现自AbstractBootstrap。
      * 客户端的是Bootstrap，服务端的则是    ServerBootstrap。
      **/
-    public static void sendMessage(String host, int port, String message) throws InterruptedException, IOException {
+    public static void sendMessage(String host, int port, String[] messages) throws InterruptedException, IOException {
         EventLoopGroup group = new NioEventLoopGroup();
         Bootstrap b = new Bootstrap();
         Channel ch;
@@ -34,7 +34,9 @@ public class BaseClient {
         System.out.println("send......");
         System.out.println("********************");
 
-        ch.writeAndFlush(message);
+        for (String message : messages){
+            ch.writeAndFlush(message);
+        }
     }
 
 
