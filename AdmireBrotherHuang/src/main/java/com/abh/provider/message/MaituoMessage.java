@@ -3,9 +3,8 @@ package com.abh.provider.message;
 import com.abh.model.MaituoRequestDTO;
 import com.abh.utils.CommonUtil;
 import com.abh.utils.HexDumper;
-
+import com.abh.constants.Constants;
 import java.io.IOException;
-
 import static com.abh.utils.BCDUtil.str2Bcd;
 import static com.abh.utils.CommonUtil.*;
 import static com.abh.utils.ConvertUtil.*;
@@ -36,7 +35,7 @@ public class MaituoMessage {
     }
 
 
-    public static byte[] generateUpStreamMessage(MaituoRequestDTO maituoRequestDTO) throws IOException {
+    public static String generateUpStreamMessage(MaituoRequestDTO maituoRequestDTO) throws IOException {
         /* 迈拓主动上报水表数据报文
 
         参数：
@@ -76,15 +75,15 @@ public class MaituoMessage {
         //System.out.println("conAddr:" + conAddr);
 
 
-        int sum = CommonUtil.getSumFromArr(new byte[] {START_VALUE}) + CommonUtil.getSumFromArr(new byte[]{(byte)16})+CommonUtil.getSumFromArr(waterNumber1)
+        int sum = CommonUtil.getSumFromArr(new byte[] {Constants.START_VALUE}) + CommonUtil.getSumFromArr(new byte[]{(byte)16})+CommonUtil.getSumFromArr(waterNumber1)
                 + CommonUtil.getSumFromArr(factory_code) + CommonUtil.getSumFromArr(controlBytes_new) + CommonUtil.getSumFromArr(accumulate_1)
                 + CommonUtil.getSumFromArr(unit_L) + CommonUtil.getSumFromArr(accumulate_2) + CommonUtil.getSumFromArr(unit_L) + CommonUtil.getSumFromArr(instantFlow)
                 + CommonUtil.getSumFromArr(unit_Lh) + CommonUtil.getSumFromArr(timeBCD) + CommonUtil.getSumFromArr(waterState) + CommonUtil.getSumFromArr(valveState);
-        dataBytes = getListByte(header7B,length7B,hexStringToByte(conAddr),new byte[] {START_VALUE},new byte[]{(byte)16},waterNumber1,factory_code,controlBytes_new,accumulate_1,unit_L,accumulate_2,unit_L,instantFlow,unit_Lh,timeBCD,waterState,valveState,new byte[] { (byte) (sum % 256) },new byte[] {END_VALUE},controlBytes);
+        dataBytes = getListByte(header7B,length7B,hexStringToByte(conAddr),new byte[] {Constants.START_VALUE},new byte[]{(byte)16},waterNumber1,factory_code,controlBytes_new,accumulate_1,unit_L,accumulate_2,unit_L,instantFlow,unit_Lh,timeBCD,waterState,valveState,new byte[] { (byte) (sum % 256) },new byte[] {Constants.END_VALUE},controlBytes);
 
         res = dataBytes;
         System.out.println(HexDumper.getHexdump(res));
-        return res;
+        return HexDumper.getHexdump(res);
     }
 
     public static byte[] generateResponseMessage(MaituoRequestDTO maituoRequestDTO) throws IOException {
@@ -127,11 +126,11 @@ public class MaituoMessage {
         //System.out.println("conAddr:" + conAddr);
 
 
-        int sum = CommonUtil.getSumFromArr(new byte[] {START_VALUE}) + CommonUtil.getSumFromArr(new byte[]{(byte)16})+CommonUtil.getSumFromArr(waterNumber1)
+        int sum = CommonUtil.getSumFromArr(new byte[] {Constants.START_VALUE}) + CommonUtil.getSumFromArr(new byte[]{(byte)16})+CommonUtil.getSumFromArr(waterNumber1)
                 + CommonUtil.getSumFromArr(factory_code) + CommonUtil.getSumFromArr(controlBytes_new) + CommonUtil.getSumFromArr(accumulate_1)
                 + CommonUtil.getSumFromArr(unit_L) + CommonUtil.getSumFromArr(accumulate_2) + CommonUtil.getSumFromArr(unit_L) + CommonUtil.getSumFromArr(instantFlow)
                 + CommonUtil.getSumFromArr(unit_Lh) + CommonUtil.getSumFromArr(timeBCD) + CommonUtil.getSumFromArr(waterState) + CommonUtil.getSumFromArr(valveState);
-        dataBytes = getListByte(header7B,length7B,hexStringToByte(conAddr),new byte[] {START_VALUE},new byte[]{(byte)16},waterNumber1,factory_code,controlBytes_new,accumulate_1,unit_L,accumulate_2,unit_L,instantFlow,unit_Lh,timeBCD,waterState,valveState,new byte[] { (byte) (sum % 256) },new byte[] {END_VALUE},controlBytes);
+        dataBytes = getListByte(header7B,length7B,hexStringToByte(conAddr),new byte[] {Constants.START_VALUE},new byte[]{(byte)16},waterNumber1,factory_code,controlBytes_new,accumulate_1,unit_L,accumulate_2,unit_L,instantFlow,unit_Lh,timeBCD,waterState,valveState,new byte[] { (byte) (sum % 256) },new byte[] {Constants.END_VALUE},controlBytes);
 
         res = dataBytes;
         System.out.println(HexDumper.getHexdump(res));

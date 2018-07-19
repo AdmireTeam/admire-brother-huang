@@ -4,6 +4,7 @@ package com.abh.utils;
 import java.util.ArrayList;
 import java.util.List;
 //import java.util.logging.Logger;
+import com.abh.constants.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +13,6 @@ import org.slf4j.LoggerFactory;
 
 public class CommonUtil
 {
-	public static final int START_VALUE = 104;
-	public static final int END_VALUE = 22;
-	public static final int BYTE_MAX = 0xff;
 	public static final byte[] HZ_HEAD = {0x3e,0x01};
 	public static final byte[] HZ_ID = {0x49,0x44,0x3a};
 	public static final byte[] HZ_DA = {0x44,0x41,0x3a};
@@ -29,7 +27,7 @@ public class CommonUtil
 	}
 
 	public static byte[] getHeaderBytes(short length) {
-		byte[] startBytes = new byte[] { START_VALUE };
+		byte[] startBytes = new byte[] { Constants.START_VALUE };
 		byte[] lengthBytes = BitUtil.shortToBytesL(length);
 		byte[] bytes = getListByte(startBytes, lengthBytes, lengthBytes, startBytes);
 		return bytes;
@@ -79,11 +77,11 @@ public class CommonUtil
 		byte[] bytesOut = null;
 		if(content!=null) {
 			bytesOut = CommonUtil.getListByte(headerBytes, controlBytes, addrBytes, afnOutBytes, seqOutBytes,
-				dataUnitBytes, content, new byte[] { (byte) (sum % 256) }, new byte[] { END_VALUE });
+				dataUnitBytes, content, new byte[] { (byte) (sum % 256) }, new byte[] { Constants.END_VALUE });
 		}
 		else {
 			bytesOut = CommonUtil.getListByte(headerBytes, controlBytes, addrBytes, afnOutBytes, seqOutBytes,
-					dataUnitBytes, new byte[] { (byte) (sum % 256) }, new byte[] { END_VALUE });
+					dataUnitBytes, new byte[] { (byte) (sum % 256) }, new byte[] { Constants.END_VALUE });
 		}
 		return bytesOut;
 	}
@@ -98,7 +96,7 @@ public class CommonUtil
 		int sum = CommonUtil.getSumFromArr(controlBytes) + CommonUtil.getSumFromArr(commandCharacterBytes)
 				+ CommonUtil.getSumFromArr(typeCharacterBytes) + CommonUtil.getSumFromArr(content);
 		byte[] bytesOut = CommonUtil.getListByte(headerBytes, controlBytes, commandCharacterBytes, typeCharacterBytes,
-				content, new byte[] { (byte) (sum % 256) }, new byte[] { END_VALUE });
+				content, new byte[] { (byte) (sum % 256) }, new byte[] { Constants.END_VALUE });
 		return bytesOut;
 	}
 
@@ -123,7 +121,7 @@ public class CommonUtil
 		int sum = 0;
 		if (arr != null && arr.length > 0) {
 			for (int i = 0; i < arr.length; i++) {
-				sum += (arr[i] & BYTE_MAX);
+				sum += (arr[i] & Constants.BYTE_MAX);
 			}
 		}
 		return sum;
