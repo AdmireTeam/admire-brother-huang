@@ -42,6 +42,14 @@ public class RequestConst {
             MtTime=resourceBundle.getString("MtTime");
 
 
+            RolaPort = Integer.valueOf(resourceBundle.getString("RolaPort"));
+            RolaConAddress=resourceBundle.getString("RolaConAddress");
+            RolaWaterNum=resourceBundle.getString("RolaWaterNum");
+            RolaReading=resourceBundle.getString("RolaReading");
+
+
+
+
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }
@@ -68,6 +76,11 @@ public class RequestConst {
     public static String MtAccumulate2;
     public static String MtInstantFlow;
     public static String MtTime;
+
+    public static String RolaConAddress;
+    public static String RolaWaterNum;
+    public static String RolaReading;
+    public static int RolaPort;
 
 
 }

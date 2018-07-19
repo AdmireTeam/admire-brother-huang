@@ -127,5 +127,32 @@ public class CommonUtil
 		return sum;
 	}
 
-	
+	public static byte[] sum(byte[] s) {
+
+		int sum = CommonUtil.getSumFromArr(s) ;
+		byte[] bytesOut = CommonUtil.getListByte(new byte[] { (byte) (sum % 256) });
+		return bytesOut;
+	}
+
+	//补0到8位
+	public static String addZero2Num(String meterId,int num) {
+		//String a = Integer.toHexString(meterId);
+		int length = meterId.length();
+		for(int i = 0;i<num-length;i++) {
+			meterId="0"+meterId;
+		}
+		return meterId;
+	}
+
+	/*组成2byte长度字段，不够的部分补0
+	public static String  add00(int meterId) {
+		String a = Integer.toHexString(meterId);
+		int length = a.length();
+		for(int i = 0;i<4-length;i++) {
+			a="0"+a;
+		}
+		return a;
+	}
+	*/
+
 }

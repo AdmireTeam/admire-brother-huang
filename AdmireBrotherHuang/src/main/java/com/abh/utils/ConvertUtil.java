@@ -201,4 +201,53 @@ public class ConvertUtil {
         return new String(buf);
     }
 
+    //异或
+    public static String xor(String content) {
+        content = change(content);
+        String[] b = content.split(" ");
+        int a = 0;
+        for (int i = 0; i < b.length; i++) {
+            a = a ^ Integer.parseInt(b[i], 16);
+        }
+        if(a<10){
+            StringBuffer sb = new StringBuffer();
+            sb.append("0");
+            sb.append(a);
+            return sb.toString();
+        }
+        return Integer.toHexString(a);
+    }
+
+    //
+    public static String sxor(String x,String y) {
+        x = change(x);
+        String[] q = x.split(" ");
+        int[] a= new int[100];
+        String a2 = new String();
+        int y1= Integer.parseInt(y,16);
+        for (int i = 0; i < q.length; i++) {
+            a[i] = y1 ^ Integer.parseInt(q[i], 16);
+            if (a[i]<16) {
+                a2 = a2+"0"+Integer.toHexString(a[i]);
+            }
+            else {
+                a2 = a2+Integer.toHexString(a[i]);
+            }
+        }
+        return a2;
+    }
+
+    //
+    public static String change(String content) {
+        String str = "";
+        for (int i = 0; i < content.length(); i++) {
+            if (i % 2 == 0) {
+                str += " " + content.substring(i, i + 1);
+            } else {
+                str += content.substring(i, i + 1);
+            }
+        }
+        return str.trim();
+    }
+
 }
