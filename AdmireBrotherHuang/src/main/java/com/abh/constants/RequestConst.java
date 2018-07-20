@@ -43,9 +43,9 @@ public class RequestConst {
 
 
             RolaPort = Integer.valueOf(resourceBundle.getString("RolaPort"));
-            RolaConAddress=resourceBundle.getString("RolaConAddress");
-            RolaWaterNum=resourceBundle.getString("RolaWaterNum");
-            RolaReading=resourceBundle.getString("RolaReading");
+            RolaConAddress= String.valueOf(Integer.parseInt(resourceBundle.getString("RolaConAddress")));
+            RolaWaterNum= String.valueOf(Integer.parseInt(resourceBundle.getString("RolaWaterNum")));
+            RolaReading= String.valueOf(Integer.parseInt(resourceBundle.getString("RolaReading")));
 
 
 

@@ -17,9 +17,9 @@ public class RolaMessage {
     public static byte[] date = {18, 06, 07, 11, 14, 57, 8};
 
     public static String generateMessage(RolaRequestDTO rolaRequestDTO){
-        String waterNum=CommonUtil.addZero2Num(rolaRequestDTO.getWaterNum(),8);
-        String reading=CommonUtil.addZero2Num(rolaRequestDTO.getReading(),8);
-        String conNum=CommonUtil.addZero2Num(rolaRequestDTO.getConNum(),8);
+        String waterNum=CommonUtil.aaa(rolaRequestDTO.getWaterNum());
+        String reading=CommonUtil.aaa(rolaRequestDTO.getReading());
+        String conNum=CommonUtil.aaa(rolaRequestDTO.getConNum());
         //表端数据
         byte[] meterBytes1 = CommonUtil.getListByte(new byte[] {14,71,3},HexDumper.hexStringToByte(waterNum),
                 new byte[] {58,(byte) 255},HexDumper.hexStringToByte(reading),new byte[] {8});
@@ -36,15 +36,11 @@ public class RolaMessage {
         byte[] userBytes2 = CommonUtil.getListByte(userBytes1,sum(userBytes1));
 
         int len = userBytes2.length;
-        //String length = CommonUtil.add00(len);
-        byte[] length = new byte[2];
+        String length = CommonUtil.aa(len);
 
-        for (int i = 0; i < 2; i++) {
-            length[1-i] = (byte)(len >>> (i * 8));
-        }
         //主动上报报文
         byte[] meterBytes = CommonUtil.getListByte(new byte[] {36},HexDumper.hexStringToByte(conNum),
-                new byte[] {1},length,userBytes2,new byte[] {(byte)163,87});
+                new byte[] {1},HexDumper.hexStringToByte(length),userBytes2,new byte[] {(byte)163,87});
 
         return HexDumper.getHexdump(meterBytes);
     }

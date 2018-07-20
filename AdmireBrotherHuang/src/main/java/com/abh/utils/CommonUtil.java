@@ -134,18 +134,17 @@ public class CommonUtil
 		return bytesOut;
 	}
 
-	//补0到8位
-	public static String addZero2Num(String meterId,int num) {
-		//String a = Integer.toHexString(meterId);
-		int length = meterId.length();
-		for(int i = 0;i<num-length;i++) {
-			meterId="0"+meterId;
-		}
-		return meterId;
-	}
 
-	/*组成2byte长度字段，不够的部分补0
-	public static String  add00(int meterId) {
+	public static String  aaa(String meterId) {
+		Integer a = Integer.parseInt(meterId);
+		String temp = Integer.toHexString(a);
+		int length = temp.length();
+		for (int i = 0; i < 8 - length; i++) {
+			temp = "0" + temp;
+		}
+		return temp;
+	}
+	public static String  aa(int meterId) {
 		String a = Integer.toHexString(meterId);
 		int length = a.length();
 		for(int i = 0;i<4-length;i++) {
@@ -153,6 +152,5 @@ public class CommonUtil
 		}
 		return a;
 	}
-	*/
 
 }
