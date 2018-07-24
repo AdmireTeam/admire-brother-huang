@@ -47,6 +47,12 @@ public class RequestConst {
             RolaWaterNum= String.valueOf(Integer.parseInt(resourceBundle.getString("RolaWaterNum")));
             RolaReading= String.valueOf(Integer.parseInt(resourceBundle.getString("RolaReading")));
 
+            JxconAddr=String.valueOf(Integer.parseInt(resourceBundle.getString("JxConAddr")));
+            Jxreading=String.valueOf(Integer.parseInt(resourceBundle.getString("Jxreading")));
+            JxconCount=Integer.valueOf(resourceBundle.getString("JxconCount"));
+            JxmeterCount=Integer.valueOf(resourceBundle.getString("JxmeterCount"));
+            JxPort=Integer.valueOf(resourceBundle.getString("JxPort"));
+
 
 
 
@@ -81,6 +87,12 @@ public class RequestConst {
     public static String RolaWaterNum;
     public static String RolaReading;
     public static int RolaPort;
+
+    public static String JxconAddr;
+    public static int JxconCount;
+    public static int JxmeterCount;
+    public static String Jxreading;
+    public static int JxPort;
 
 
 }

@@ -32,7 +32,6 @@ public class BaseClient {
         // 连接服务端
         ch = b.connect(host, port).sync().channel();
         System.out.println("send......");
-        System.out.println("********************");
 
         for (String message : messages){
             ch.writeAndFlush(message);
