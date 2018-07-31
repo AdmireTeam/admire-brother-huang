@@ -23,7 +23,7 @@ public class MtClient extends BaseClient{
         requestMessages[0] = requestMessage;
         requestMessages[1] = upstreamMessage;
         try {
-            sendMessage(RequestConst.HedaHost, RequestConst.HedaPort, requestMessages);
+            sendMessage(RequestConst.HedaHost, RequestConst.MtPort, requestMessages);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {

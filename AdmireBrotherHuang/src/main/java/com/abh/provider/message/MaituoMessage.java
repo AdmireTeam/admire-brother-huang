@@ -52,7 +52,7 @@ public class MaituoMessage {
         byte[] factory_code = new byte[]{(byte)0,(byte)17,(byte)17};
 
 
-        byte[] unit_L = new byte[]{(byte)41};
+        byte[] unit_L = new byte[]{(byte)44};
         byte[] unit_Lh = new byte[]{(byte)50};
 
         byte[] res = null;

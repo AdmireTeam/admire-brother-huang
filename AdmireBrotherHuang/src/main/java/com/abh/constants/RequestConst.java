@@ -40,6 +40,7 @@ public class RequestConst {
             MtAccumulate2=resourceBundle.getString("MtAccumulate2");
             MtInstantFlow=resourceBundle.getString("MtInstantFlow");
             MtTime=resourceBundle.getString("MtTime");
+            MtPort=Integer.valueOf(resourceBundle.getString("MtPort"));
 
 
             RolaPort = Integer.valueOf(resourceBundle.getString("RolaPort"));
@@ -82,6 +83,7 @@ public class RequestConst {
     public static String MtAccumulate2;
     public static String MtInstantFlow;
     public static String MtTime;
+    public static int MtPort;
 
     public static String RolaConAddress;
     public static String RolaWaterNum;
