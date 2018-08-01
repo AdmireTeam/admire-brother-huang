@@ -43,7 +43,7 @@ public class XtMessage {
                 } else {
                     data = CommonUtil.getListByte(HexDumper.hexStringToByte(String.valueOf(xtRequestDTO.getMeterStartAddr()) + "01"),
                             CommonUtil.reverseArray(HexDumper.hexStringToByte(reading)),
-                            HexDumper.hexStringToByte("0200"));
+                            HexDumper.hexStringToByte("0000"));
                 }
                 //meterStartAddr++;
 
