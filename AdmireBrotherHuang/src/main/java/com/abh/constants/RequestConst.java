@@ -54,6 +54,13 @@ public class RequestConst {
             JxmeterCount=Integer.valueOf(resourceBundle.getString("JxmeterCount"));
             JxPort=Integer.valueOf(resourceBundle.getString("JxPort"));
 
+            XtconAddr=resourceBundle.getString("XtconAddr");
+            XtconCount=Integer.valueOf(resourceBundle.getString("XtconCount"));
+            XtmeterCount=Integer.valueOf(resourceBundle.getString("XtmeterCount"));
+            Xtreading=resourceBundle.getString("Xtreading");
+            XtPort=Integer.valueOf(resourceBundle.getString("XtPort"));
+            XtMeterStartAddr=resourceBundle.getString("XtMeterStartAddr");
+
 
 
 
@@ -95,6 +102,13 @@ public class RequestConst {
     public static int JxmeterCount;
     public static String Jxreading;
     public static int JxPort;
+
+    public static String XtconAddr;
+    public static int XtconCount;
+    public static int XtmeterCount;
+    public static String Xtreading;
+    public static int XtPort;
+    public static String XtMeterStartAddr;
 
 
 }

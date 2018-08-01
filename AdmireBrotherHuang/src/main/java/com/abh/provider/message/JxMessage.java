@@ -31,7 +31,7 @@ public class JxMessage {
             heartBytes = CommonUtil.getDownMessage((short) 53, (byte) 201, String.valueOf(jxRequestDTO.getConAddr()),
                     (byte) 2, (byte) 112, 268436480, new byte[] { 36 });
             byte[] data = null;
-            readManyMetersBytes = null;
+
             int meterTN = 1;
             String reading = jxRequestDTO.getReading();
             for (int j = 0; j < jxRequestDTO.getMeterCount(); j++) {
