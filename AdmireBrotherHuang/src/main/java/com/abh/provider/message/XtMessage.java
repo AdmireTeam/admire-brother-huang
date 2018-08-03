@@ -37,11 +37,11 @@ public class XtMessage {
                 //String ma = String.valueOf(meterStartAddr);
                 if (data != null) {
                     data = CommonUtil.getListByte(data,
-                            CommonUtil.getListByte(HexDumper.hexStringToByte(String.valueOf(xtRequestDTO.getMeterStartAddr()) + "01"),
+                            CommonUtil.getListByte(HexDumper.hexStringToByte(String.valueOf(Long.parseLong(xtRequestDTO.getMeterStartAddr())+j) + "01"),
                                     CommonUtil.reverseArray(HexDumper.hexStringToByte(reading)),
                                     HexDumper.hexStringToByte("0200")));
                 } else {
-                    data = CommonUtil.getListByte(HexDumper.hexStringToByte(String.valueOf(xtRequestDTO.getMeterStartAddr()) + "01"),
+                    data = CommonUtil.getListByte(HexDumper.hexStringToByte(xtRequestDTO.getMeterStartAddr() + "01"),
                             CommonUtil.reverseArray(HexDumper.hexStringToByte(reading)),
                             HexDumper.hexStringToByte("0000"));
                 }
