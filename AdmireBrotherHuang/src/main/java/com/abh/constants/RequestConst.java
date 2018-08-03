@@ -61,7 +61,10 @@ public class RequestConst {
             XtPort=Integer.valueOf(resourceBundle.getString("XtPort"));
             XtMeterStartAddr=resourceBundle.getString("XtMeterStartAddr");
 
-
+            SciotPort = Integer.valueOf(resourceBundle.getString("SciotPort"));
+            SciotWaterNum= String.valueOf(Long.parseLong(resourceBundle.getString("SciotWaterNum")));
+            SciotReading= String.valueOf(Double.parseDouble(resourceBundle.getString("SciotReading")));
+            SciotStartDate= String.valueOf(Long.parseLong(resourceBundle.getString("SciotStartDate")));
 
 
         } catch (FileNotFoundException e) {
@@ -110,5 +113,9 @@ public class RequestConst {
     public static int XtPort;
     public static String XtMeterStartAddr;
 
+    public static String SciotStartDate;
+    public static String SciotWaterNum;
+    public static String SciotReading;
+    public static int SciotPort;
 
 }
